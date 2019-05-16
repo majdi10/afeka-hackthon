@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">hackacthon app</string>
     <string name="action_settings">Settings</string>
+    <string-array name="types">
+        <item>Mobile</item>
+        <item>Office</item>
+        <item>Home</item>
+    </string-array>
 </resources>

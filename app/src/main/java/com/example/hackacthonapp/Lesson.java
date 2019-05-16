@@ -36,6 +36,8 @@ public class Lesson extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Lesson.this, SubTopic.class);
                 startActivity(intent);
+
+
             }
         });
 
