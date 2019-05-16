@@ -53,13 +53,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void checkingPassword(String userName, String password){
-        if(userName.equals("tomermusafi") && password.equals("12345678")){
+//        if(userName.equals("tomermusafi") && password.equals("12345678")){
+//            Intent intent = new Intent(MainActivity.this, my_courses.class);
+//            startActivity(intent);
+//        }
+//        else{
+//            errorMassageTv.setText("UserName or password is wrong");
+//        }
             Intent intent = new Intent(MainActivity.this, my_courses.class);
             startActivity(intent);
-        }
-        else{
-            errorMassageTv.setText("UserName or password is wrong");
-        }
     }
 
     @Override
