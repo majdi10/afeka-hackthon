@@ -28,10 +28,10 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        userNameEt = (EditText)(findViewById(R.id.userNameEditText));
-        passwordEt = (EditText)(findViewById(R.id.passwordEditText));
-        errorMassageTv = (TextView)(findViewById(R.id.errorTextView));
-        loginBtn = (Button)(findViewById(R.id.loginBtn));
+        userNameEt = (EditText)findViewById(R.id.userNameEditText);
+        passwordEt = (EditText)findViewById(R.id.passwordEditText);
+        errorMassageTv = (TextView)findViewById(R.id.errorTextView);
+        loginBtn = (Button)findViewById(R.id.loginBtn);
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
 
