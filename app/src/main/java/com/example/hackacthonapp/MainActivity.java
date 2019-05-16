@@ -1,5 +1,6 @@
 package com.example.hackacthonapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,11 +9,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
-    private EditText userName;
+    private EditText userNameEt;
+    private EditText passwordEt;
+    private TextView errorMassageTv;
+    private Button loginBtn;
 //hii
     //elitest
     @Override
@@ -22,6 +28,20 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        userNameEt = (EditText)(findViewById(R.id.userNameEditText));
+        passwordEt = (EditText)(findViewById(R.id.passwordEditText));
+        errorMassageTv = (TextView)(findViewById(R.id.errorTextView));
+        loginBtn = (Button)(findViewById(R.id.loginBtn));
+
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                errorMassageTv.setText("");
+                checkingPassword(userNameEt.getText().toString(), passwordEt.getText().toString());
+            }
+        });
+
        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,6 +50,16 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    private void checkingPassword(String userName, String password){
+        if(userName.equals("tomermusafi") && password.equals("12345678")){
+            Intent intent = new Intent(MainActivity.this, my_courses.class);
+            startActivity(intent);
+        }
+        else{
+            errorMassageTv.setText("UserName or password is wrong");
+        }
     }
 
     @Override
