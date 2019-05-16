@@ -9,5 +9,6 @@ public class my_courses extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_courses);
+        System.out.println("started: my courses");
     }
 }
