@@ -13,6 +13,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
 
 public class MainActivity extends AppCompatActivity {
     private EditText userNameEt;
@@ -53,6 +61,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void checkingPassword(String userName, String password){
+        OkHttpClient client = new OkHttpClient();
+
+        String url = "http://73edaf8b.ngrok.io/login?username="+userName+",password="+password;
+
+        Request request = new Request.Builder().url(url).build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if(response.body().string().charAt(0) !=  '0'){
+                    Intent intent = new Intent(MainActivity.this, my_courses.class);
+                    startActivity(intent);
+                }
+                else{
+                    errorMassageTv.setText("UserName or password is wrong");
+                }
+            }
+        });
+
 //        if(userName.equals("tomermusafi") && password.equals("12345678")){
 //            Intent intent = new Intent(MainActivity.this, my_courses.class);
 //            startActivity(intent);
@@ -60,8 +92,6 @@ public class MainActivity extends AppCompatActivity {
 //        else{
 //            errorMassageTv.setText("UserName or password is wrong");
 //        }
-            Intent intent = new Intent(MainActivity.this, my_courses.class);
-            startActivity(intent);
     }
 
     @Override
