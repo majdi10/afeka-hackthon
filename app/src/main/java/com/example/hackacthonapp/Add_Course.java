@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 
 public class Add_Course extends AppCompatActivity {
     private EditText courseIdEt;
     private EditText courseNameEt;
     private EditText institueNameEt;
-    private EditText lecturerIdEt;
+    private Switch vote;
+    private Switch attendence;
     private Button addCourseBtn;
 
     @Override
@@ -19,10 +21,11 @@ public class Add_Course extends AppCompatActivity {
         setContentView(R.layout.activity_add__course);
 
         courseIdEt = (EditText)findViewById(R.id.course_code_text);
-        courseNameEt = (EditText)findViewById(R.id.name_text);
-        institueNameEt = (EditText)findViewById(R.id.institue_text);
-        lecturerIdEt = (EditText)findViewById(R.id.ID_text);
-        addCourseBtn = (Button)findViewById(R.id.add_course);
+        courseNameEt = (EditText)findViewById(R.id.nameEt);
+        institueNameEt = (EditText)findViewById(R.id.instituteET);
+        addCourseBtn = (Button)findViewById(R.id.addBtn);
+        vote = (Switch)findViewById(R.id.voteSwitch);
+        attendence = (Switch)findViewById(R.id.attendenceSwitch);
         addCourseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
