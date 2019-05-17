@@ -28,7 +28,8 @@ public class Lesson extends AppCompatActivity {
         staticsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(Lesson.this, ActivityLesson.class);
+                startActivity(intent);
             }
         });
         subTopicBtn.setOnClickListener(new View.OnClickListener() {
