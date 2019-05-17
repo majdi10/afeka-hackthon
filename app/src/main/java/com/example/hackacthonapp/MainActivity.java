@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
         String url = Static_Variables.url +  "/lecturer/login?username="+userName+",password="+password;
         Request request = new Request.Builder().url(url).build();
+        System.out.println(request.toString());
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {

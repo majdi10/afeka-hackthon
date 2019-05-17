@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".ActivityLesson">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/backgroundimage"
+        app:srcCompat="@drawable/backgroundimage" />
+    <!--<ImageView-->
+        <!--android:id="@+id/imageView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:src="@drawable/background2"-->
+        <!--app:srcCompat="@drawable/background2" />-->
+
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -57,12 +70,8 @@
             android:layout_alignParentRight="true"
             android:text="Reset" />
 
-        <!--<ImageView-->
-            <!--android:id="@+id/imageView"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:src="@drawable/background-600x337"-->
-            <!--app:srcCompat="@drawable/background-600x337" />-->
+
+
 
     </RelativeLayout>
 
