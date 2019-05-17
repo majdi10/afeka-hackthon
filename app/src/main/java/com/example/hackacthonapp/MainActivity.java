@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.hackacthonapp.OOPs.Static_Variables;
+
 import java.io.IOException;
 
 import okhttp3.Call;
@@ -63,10 +65,8 @@ public class MainActivity extends AppCompatActivity {
     private void checkingPassword(String userName, String password){
         OkHttpClient client = new OkHttpClient();
 
-        String url = "http://73edaf8b.ngrok.io/login?username="+userName+",password="+password;
-
+        String url = Static_Variables.url +  "/lecturer/login?username="+userName+",password="+password;
         Request request = new Request.Builder().url(url).build();
-
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -75,8 +75,16 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                if(response.body().string().charAt(0) !=  '0'){
+                String res = response.body().string();
+                System.out.println(res);
+
+                if(!res.equals("") && res.charAt(0) !=  '0'){
                     Intent intent = new Intent(MainActivity.this, my_courses.class);
+
+                    Bundle b = new Bundle();
+                    b.putString("LID", res); //my id
+                    intent.putExtras(b); //LID to next activity
+
                     startActivity(intent);
                 }
                 else{
@@ -85,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        if(userName.equals("tomermusafi") && password.equals("12345678")){
+//        if(userName.equals("r") && password.equals("1")){
 //            Intent intent = new Intent(MainActivity.this, my_courses.class);
 //            startActivity(intent);
 //        }
